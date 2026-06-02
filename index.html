@@ -1,21 +1,219 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Strickman.io</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strickman.io - O Jogo de Tiro Mais Leve da Web</title>
+    <style>
+        /* Reset básico e Variáveis de Cor */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #ff6b00; /* Laranja da explosão */
+            --bg-color: #1a1a1d;
+            --text-light: #f5f5f5;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: #111;
+            padding: 20px 50px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px var(--primary-color);
+        }
+
+        /* Seção Principal (Hero) */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h2 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            color: white;
+        }
+
+        .hero-text h2 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4);
+            border: 2px solid #333;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Botão de Jogar */
+        .btn-play {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 18px 45px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn-play:hover {
+            background-color: #e65c00;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 0, 0.5);
+        }
+
+        /* Seção de Funcionalidades */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 60px 20px;
+            background: #222;
+            flex-wrap: wrap;
+            text-align: center;
+            gap: 30px;
+        }
+
+        .feature-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 30px;
+            background: #1a1a1d;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .feature-box h3 span {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            color: #aaa;
+            font-size: 1.1rem;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #0a0a0c;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Responsividade para celulares */
+        @media (max-width: 768px) {
+            .hero-text h2 { font-size: 2.5rem; }
+            .hero { text-align: center; }
+            .btn-play { width: 100%; }
+        }
+    </style>
 </head>
-<body style="text-align:center;">
+<body>
 
-    <h1>Strickman.io</h1>
+    <header>
+        <h1>Strickman.io</h1>
+    </header>
 
-    <img src="capa.jpg" width="500">
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Sobreviva. Atire. <span>Domine.</span></h2>
+                <p>O jogo de tiro multiplayer definitivo no estilo voxel. Sem instalações longas, sem lags absurdos. Apenas ação explosiva em tempo real com jogadores do mundo todo.</p>
+                <a href="#jogar" class="btn-play">Jogar Agora Grátis</a>
+            </div>
+            <div class="hero-image">
+                <!-- Imagem com o nome exato do arquivo -->
+                <img src="capa.jpg.jpeg" alt="Strickman.io Personagem">
+            </div>
+        </section>
 
-    <br><br>
+        <section class="features">
+            <div class="feature-box">
+                <h3><span>🌐</span> Jogo de Navegador</h3>
+                <p>Jogue instantaneamente! Basta acessar o site e entrar na arena. Sem downloads demorados, sem necessidade de instalar launchers.</p>
+            </div>
+            <div class="feature-box">
+                <h3><span>⚡</span> Apenas 50MB</h3>
+                <p>Tamanho ultraleve. O jogo inteiro carrega em poucos segundos, economizando seus dados e o espaço de armazenamento da sua máquina.</p>
+            </div>
+            <div class="feature-box">
+                <h3><span>💻</span> Roda em Qualquer PC</h3>
+                <p>Totalmente acessível e otimizado. Seja em um PC gamer potente ou naquele notebook antigo do escritório, o FPS alto é garantido para todos.</p>
+            </div>
+        </section>
+    </main>
 
-    <a href="jogo.html">
-        <button style="font-size:30px;">
-            Jogar
-        </button>
-    </a>
+    <footer>
+        <p>&copy; 2026 Strickman.io. Todos os direitos reservados.</p>
+    </footer>
 
 </body>
 </html>
