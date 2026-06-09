@@ -1515,6 +1515,37 @@
             }
             prevTime = time; renderer.render(scene, camera);
         }
-    </script>
+   // --- SISTEMA DE FPS ---
+        // 1. Cria o elemento de texto na tela
+        const fpsDiv = document.createElement('div');
+        fpsDiv.style.cssText = "position: absolute; top: 10px; left: 10px; color: #ff0000; font-size: 24px; font-weight: bold; z-index: 9999; pointer-events: none; text-shadow: 2px 2px 2px black;";
+        fpsDiv.innerText = "FPS: 0";
+        document.body.appendChild(fpsDiv);
+
+        // 2. Desce um pouco o log de erros original para não ficarem um em cima do outro
+        const errorLog = document.getElementById('error-log');
+        if (errorLog) errorLog.style.top = "40px";
+
+        // 3. Variáveis para o cálculo
+        let fpsFrames = 0;
+        let fpsLastTime = performance.now();
+
+        // 4. Intercepta a sua função animate() original de forma segura
+        const originalAnimate = animate;
+        animate = function() {
+            fpsFrames++;
+            const timeNow = performance.now();
+            
+            // Atualiza o texto a cada 1 segundo (1000 ms)
+            if (timeNow - fpsLastTime >= 1000) {
+                fpsDiv.innerText = "FPS: " + fpsFrames;
+                fpsFrames = 0;
+                fpsLastTime = timeNow;
+            }
+            
+            // Roda todo o seu código original de renderização normalmente
+            originalAnimate(); 
+        };
+        // ---------------------- </script>
 </body>
 </html>
